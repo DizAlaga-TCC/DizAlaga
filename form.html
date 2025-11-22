@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!--TODO fica confuso se tem muitos endereços possíveis, adicionar lógica para escolher o mais provável -->
+<!--TODO adicionar a lógica contrária de seleção; auto-complete ao escrever local no form -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="form.css" />
+
+  <title>DizAlaga</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="shortcut icon" href="logo.png" type="image/png" />
+  
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+        <img src="logo.png" width="50" height="50" alt="Logo" />
+        DizAlaga
+        </a>
+        <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        >
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="map.html">Mapa</a></li>
+            <li class="nav-item"><a class="nav-link" href="insights.html">Paineis</a></li>
+            <li class="nav-item"><a class="nav-link" href="form.html">Relatos</a></li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+  <section class="relato-section">
+    <h1>Relato Comunitário</h1>
+
+    <div class="form-container">
+
+      <div class="info-box">
+        Use o mapa (clique para marcar), o botão de localização ou digite seu endereço.<br>
+        Depois insira seu nome, escreva uma descrição (opcional) e clique em “Enviar relato”.
+      </div>
+      
+      <div id="map"></div>
+
+      <form id="relatoForm" action="https://formsubmit.co/f1d3036791c61e6c6d5c302d108be32a" method="POST">
+
+        <input type="hidden" name="_next" value="https://tpancieri.github.io/TCC/obrigado.html">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <input type="hidden" name="email" value="thiago.pancieri.07656@alunos.unialfa.com.br" />
+        <input type="hidden" name="data" id="data" />
+        <input type="hidden" name="hora" id="hora" />
+        <input type="hidden" name="latitude" id="latitude" />
+        <input type="hidden" name="longitude" id="longitude" />
+        <input type="hidden" name="redirect" value="https://tpancieri.github.io/TCC/obrigado.html" />
+
+
+        <button type="button" id="btn-localizacao" class="btn btn-outline-primary mt-2 mb-3">Usar minha localização atual</button>
+
+        <div class="mb-3">
+          <label for="nome" class="form-label">Seu nome</label>
+          <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite seu nome" required />
+        </div>
+
+        <div class="mb-3 position-relative">
+          <label for="local" class="form-label">Local identificado</label>
+          <input type="text" class="form-control" name="local" id="local" placeholder="Digite ou clique no mapa..." autocomplete="off" />
+        </div>
+
+        <div class="mb-3">
+          <label for="descricao" class="form-label">Descrição (opcional)</label>
+          <textarea class="form-control" name="descricao" id="descricao" rows="3" placeholder="Descreva a situação, se quiser..."></textarea>
+        </div>
+
+        <!-- Foto do alagamento -->
+        <!-- 
+        <div class="mb-3">
+          <label for="foto" class="form-label">Foto do alagamento</label>
+          <input type="file" class="form-control" id="foto" accept="image/*" />
+          <input type="hidden" name="imagemUrl" id="imagemUrl" />
+        </div>
+        -->
+      
+        <button type="submit" class="btn btn-primary w-100">Enviar relato</button>
+      </form>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="form.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      
+</body>
+
+</html>
+
+
+
+
+
+

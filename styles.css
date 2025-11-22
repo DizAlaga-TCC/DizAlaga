@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4f8;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #1565C0 !important;
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-link {
+    position: relative;
+    color: white !important;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0;
+    background: #d6bc9a;
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover {
+    color: #d6bc9a !important;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 140px 20px 140px 20px; 
+    color: #b9dff4;
+    min-height: 550px;            
+    display: flex;
+    align-items: center;
+}
+
+/* imagem animada */
+.hero-gif-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('105296.gif') center center / cover no-repeat;
+    opacity: 0.6;
+    z-index: 0;
+}
+
+/* overlay escuro */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* conteúdo */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.hero h1 {
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: white;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* CTA */
+.btn-green {
+    background-color: #1565C0;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-green:hover {
+    background-color: #0f53a0;
+}
+
+/* CARDS */
+.cards {
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: 2px solid #0a3361;
+    margin-bottom: 40px;
+}
+
+.cards-box {
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.cards-box:hover {
+    transform: translateY(-5px);
+}
+
+.cards-icon {
+    font-size: 3rem;
+    color: #0a3361;
+    margin-bottom: 15px;
+}
+
+.cards-box h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #0a3361;
+}
+
+/* grid responsivo */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* IMPACT  */
+.impact {
+    background: #f0f4f8;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.impact h2 {
+    color: #0a3361;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.impact p {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.impact-box {
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.impact-box:hover {
+    transform: translateY(-5px);
+}
+
+/*  FOOTER  */
+.footer {
+    background: #1565C0;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 32px;
+    }
+
+    .hero {
+        padding: 80px 20px;
+        min-height: 460px;
+        align-items: flex-start;
+    }
+
+    .hero-content {
+        padding-top: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .cards {
+        padding: 70px 20px;
+        padding-top: 90px !important;
+    }
+
+     .cards-grid {
+        gap: 45px;  
+        margin-top: 20px;
+    }
+
+    .cards-box {
+        padding: 35px; /* deixa os cards mais confortáveis */
+    }
+
+    .impact {
+        padding: 60px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-grid {
+        gap: 40px;
+    }
+    
+     .hero {
+        min-height: 520px; 
+    }
+
+    .cards-box {
+        padding: 38px;
+    }
+}
+
+
+
